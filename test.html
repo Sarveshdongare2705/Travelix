@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Read Text File with AJAX</title>
+</head>
+<body>
+    <h1>Read Text File with AJAX</h1>
+    <button id="readButton">Read Text File</button>
+    <div id="result"></div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Wait for the document to be ready
+        $(document).ready(function () {
+            // Define the button click event handler
+            $("#readButton").click(function () {
+                // Make an AJAX request to the text file
+                $.ajax({
+                    url: "hi.txt", // Specify the path to your text file
+                    dataType: "text",
+                    success: function (data) {
+                        // Display the text data in the result div
+                        $("#result").text(data);
+                    },
+                    error: function () {
+                        // Handle any errors, e.g., file not found
+                        $("#result").text("Error: Unable to read the file.");
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
